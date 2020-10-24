@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: carWashingApp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: mahmo
+Implementation-Vendor-Id: com.car.washing
+Build-Jdk: 1.8.0_45
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/com.car.washing
+Created-By: Maven Integration for Eclipse
+
