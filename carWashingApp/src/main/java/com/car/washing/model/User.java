@@ -14,7 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -40,21 +40,20 @@ public class User implements Serializable{
 	
 	private String password;
 	private boolean enabled;
-	private boolean isWaiting ;
-	private boolean isOnline ;
 	private String role;
 	private Date createdDate;
 	private Date updatedDate;
 	
 	@OneToMany(mappedBy = "user", targetEntity = UserMessages.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<UserMessages> userMessages;
-
-	@OneToOne(targetEntity=Driver.class,cascade=CascadeType.ALL) 
-	private Driver driver;
 	
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<Orders> orders;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private List<DriverDetails> driverDetails;
 	
 	public Long getId() {
 		return id;
@@ -144,28 +143,20 @@ public class User implements Serializable{
 		this.fullName = fullName;
 	}
 
-	public boolean isWaiting() {
-		return isWaiting;
-	}
-
-	public void setWaiting(boolean isWaiting) {
-		this.isWaiting = isWaiting;
-	}
-
-	public boolean isOnline() {
-		return isOnline;
-	}
-
-	public void setOnline(boolean isOnline) {
-		this.isOnline = isOnline;
-	}
-
 	public List<Orders> getOrders() {
 		return orders;
 	}
 
 	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
+	}
+
+	public List<DriverDetails> getDriverDetails() {
+		return driverDetails;
+	}
+
+	public void setDriverDetails(List<DriverDetails> driverDetails) {
+		this.driverDetails = driverDetails;
 	}
 	
 	

@@ -28,13 +28,14 @@ public class PreLoginController {
 	@Autowired
 	private UserService userService;
 
+	//@RequestParam("userFile") MultipartFile userFile
 	@PostMapping("/signup")
-	public ResponseEntity<List<User>> signup(@RequestParam("user") String user,
-			@RequestParam("userFile") MultipartFile userFile) throws JsonParseException, JsonMappingException, IOException {
+	public ResponseEntity<List<User>> signup(@RequestParam("user") String user
+			) throws JsonParseException, JsonMappingException, IOException {
 		// get product data from rest api
 		if (user != null) {
 			User userData = new ObjectMapper().readValue(user, User.class);
-			userData.setUserPhoto(userFile.getBytes());
+//			userData.setUserPhoto(userFile.getBytes());
 			userData.setCreatedDate(new Date());
 			userService.save(userData);
 			List<User> users = userService.findAll() ;

@@ -12,7 +12,6 @@ import com.car.washing.repository.UserRepository;
 import com.car.washing.util.PasswordUtil;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService{
 
 	@Autowired

@@ -34,5 +34,37 @@ public class Orders implements Serializable{
 	private OrderAdress userAdresses;
 	
 	private String carType ;
+
+	public Long getOrdersId() {
+		return ordersId;
+	}
+
+	public void setOrdersId(Long ordersId) {
+		this.ordersId = ordersId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getCarType() {
+		return carType;
+	}
+
+	public void setCarType(String carType) {
+		this.carType = carType;
+	}
+
+	public OrderAdress getUserAdresses() {
+		return userAdresses;
+	}
+
+	public void setUserAdresses(OrderAdress userAdresses) {
+		this.userAdresses = userAdresses;
+	}
 	
 }

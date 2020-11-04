@@ -20,13 +20,11 @@ public class OrderAdress implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long userAdressId ;
     private String address;
-    private String city;
-    private String state;
-    private String country;
+    private String lang;
+    private String lat;
     
-    @OneToOne(targetEntity=User.class) 
-    private User user;
-    
+    @OneToOne(targetEntity=Orders.class) 
+    private Orders orders ;
     
 	public Long getUserAdressId() {
 		return userAdressId;
@@ -40,30 +38,24 @@ public class OrderAdress implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCity() {
-		return city;
+	public Orders getOrders() {
+		return orders;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setOrders(Orders orders) {
+		this.orders = orders;
 	}
-	public String getState() {
-		return state;
+	public String getLang() {
+		return lang;
 	}
-	public void setState(String state) {
-		this.state = state;
+	public void setLang(String lang) {
+		this.lang = lang;
 	}
-	public String getCountry() {
-		return country;
+	public String getLat() {
+		return lat;
 	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setLat(String lat) {
+		this.lat = lat;
 	}
     
-    
+	
 }
